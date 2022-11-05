@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     public void pass2Sec(View view) {
         String temp = first.getText().toString();
 
-        si.putExtra("chose", choose.isChecked());
+        si.putExtra("choice", choose.isChecked());
         si.putExtra("first", Double.parseDouble(temp));
         temp = progress.getText().toString();
         si.putExtra("prog", Double.parseDouble(temp));
