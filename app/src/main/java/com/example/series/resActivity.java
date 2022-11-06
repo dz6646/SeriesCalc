@@ -119,5 +119,9 @@ public class resActivity extends AppCompatActivity implements AdapterView.OnItem
         texts[2] = findViewById(R.id.n);
         texts[3] = findViewById(R.id.SN);
     }
+
+    public void goBack(View view) {
+        finish();
+    }
 }
 
