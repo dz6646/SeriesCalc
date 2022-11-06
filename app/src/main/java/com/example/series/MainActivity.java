@@ -13,7 +13,7 @@ import android.widget.Switch;
 public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
-    String serie[];
+    String series[];
     Switch choose;
     EditText first;
     EditText progress;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         first = findViewById(R.id.first);
         progress = findViewById(R.id.progress);
         pass = findViewById(R.id.pass);
-        serie = new String[20];
+        series = new String[20];
         si = new Intent(this, resActivity.class);
     }
 
@@ -47,9 +47,38 @@ public class MainActivity extends AppCompatActivity {
         String temp = first.getText().toString();
 
         si.putExtra("choice", choose.isChecked());
-        si.putExtra("first", Double.parseDouble(temp));
+        if(inputCheck(temp))
+        {
+            si.putExtra("first", Double.parseDouble(temp));
+        }
+        else
+        {
+            si.putExtra("first", 0);
+        }
         temp = progress.getText().toString();
-        si.putExtra("prog", Double.parseDouble(temp));
+        if(inputCheck(temp))
+        {
+            si.putExtra("prog", Double.parseDouble(temp));
+        }
+        else
+        {
+            si.putExtra("prog", 0);
+        }
         startActivity(si);
+    }
+
+    public boolean inputCheck(String st)
+    {
+        int i = 0;
+
+        for(i = 0; i < st.length(); i++)
+        {
+            if((st.charAt(i) < '0' || st.charAt(i) > '9') && st.charAt(i) != '.')
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

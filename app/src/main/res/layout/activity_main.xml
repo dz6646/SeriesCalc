@@ -34,52 +34,54 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.2" />
-
-        <EditText
-            android:id="@+id/first"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.6"
-            android:ems="10"
-            android:hint="Enter the first number of the series: "
-            android:inputType="numberSigned|numberDecimal"
-            tools:ignore="HardcodedText" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
             android:layout_weight="0.1" />
 
-        <EditText
-            android:id="@+id/progress"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.6"
-            android:ems="10"
-            android:hint="Enter the progression number of the series: "
-            android:inputType="numberSigned|numberDecimal"
-            tools:ignore="HardcodedText" />
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.4" />
+            <EditText
+                android:id="@+id/first"
+                android:layout_width="match_parent"
+                android:layout_height="108dp"
+                android:layout_weight="0.6"
+                android:ems="10"
+                android:hint="First num"
+                android:inputType="numberSigned|numberDecimal"
+                tools:ignore="HardcodedText" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="106dp"
+                android:layout_weight="0.6"
+                android:ems="10"
+                android:hint="Progressor"
+                android:inputType="numberSigned|numberDecimal"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/pass"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.3"
-            android:backgroundTint="#BDECB6"
+            android:textColor="@color/white"
             android:onClick="pass2Sec"
-            android:text="Button"
-            android:textColor="@color/black" />
+            android:text="Calculate"
+            android:backgroundTint="@color/black" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.5" />
+            android:layout_weight="0.8" />
     </LinearLayout>
 
     <Space

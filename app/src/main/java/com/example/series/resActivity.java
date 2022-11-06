@@ -14,10 +14,13 @@ import android.widget.TextView;
 
 public class resActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     Intent gi;
+
     double first, prog;
     boolean choice;
+
     String[] series = new String[20];
     TextView[] texts = new TextView[4];
+
     ListView lv;
     ArrayAdapter<String> adp;
 
@@ -40,7 +43,7 @@ public class resActivity extends AppCompatActivity implements AdapterView.OnItem
         lv.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
         lv.setOnItemClickListener(this);
 
-        series[0] = String.valueOf(first);
+        series[0] = String.format("%.02f", first);
         if(choice)
         {
             mathSeries();
@@ -70,7 +73,7 @@ public class resActivity extends AppCompatActivity implements AdapterView.OnItem
         for(i = 1; i < series.length; i++)
         {
             temp = Double.parseDouble(series[i - 1]) + prog;
-            series[i] = String.valueOf(temp);
+            series[i] = String.format("%.02f", temp);
         }
     }
 
@@ -81,25 +84,31 @@ public class resActivity extends AppCompatActivity implements AdapterView.OnItem
         for(i = 1; i < series.length; i++)
         {
             temp = Double.parseDouble(series[i - 1]) * prog;
-            series[i] = String.valueOf(temp);
+            series[i] = String.format("%.02f", temp);
         }
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
-
-        int i = 0;
-        double sum = Double.parseDouble(series[0]);
-
-        for(i = 1; i < pos; i++)
+        if(pos == 0)
         {
-            sum += Double.parseDouble(series[i]);
+            texts[0].setText("X1: " + series[0]);
         }
+        else
+        {
+            int i;
+            double sum = Double.parseDouble(series[0]);
 
-        texts[0].setText("X1: " + sum);
-        texts[1].setText("d: " + prog);
-        texts[2].setText("n: " + pos);
+            for (i = 1; i < pos; i++) {
+                sum += Double.parseDouble(series[i]);
+            }
+            String st = String.format("%.02f", sum);
+            texts[0].setText("X1: " + st);
+        }
+        String st = String.format("%.02f", prog);
+        texts[1].setText("d: " + st);
+        texts[2].setText("n: " + (pos + 1));
         texts[3].setText("Sn: " + series[pos]);
     }
 
